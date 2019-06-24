@@ -1,0 +1,30 @@
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Issues</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="list-group">
+        <div class="list-group-item" *ngFor="let issue of issues">
+          <h3><a routerLink="{{issue.number}}">{{ issue.title }}</a></h3>
+          <p><b>User:</b> {{issue.user.login}}</p>
+          <p><b>Assignee:</b> {{issue.assignee ? issue.assignee.login : 'No Assignee' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 pull-right">
+      <ul class="pagination">
+        <li><a routerLink="/issues" [queryParams]="{page: prevPage() || 1}">&lt;</a></li>
+        <li><a href="#">{{ page }}</a></li>
+        <li><a routerLink="/issues" [queryParams]="{page: nextPage()}">&gt;</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

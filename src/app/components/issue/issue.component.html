@@ -1,0 +1,27 @@
+
+<div class="container">
+
+  <div *ngIf="issue != null else elseTemp">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>{{ issue.title }}</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <p><b>User:</b> {{ issue.user.login }}</p>
+        <p><b>Assignee:</b> {{ issue.assignee ? issue.assignee.login : 'No assignee' }}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <p>{{ issue.body }}</p>
+      </div>
+    </div>
+  </div>
+  <ng-template #elseTemp>
+    <h1>Not Found</h1>
+  </ng-template>
+</div>
